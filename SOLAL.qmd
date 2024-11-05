@@ -23,5 +23,15 @@ nb_students <- data |>
 ```
 The data set contains `r NROW(nb_students)` students 
 
+# Question 4
+```{r}
+students <- data |>
+  distinct(id, .keep_all = TRUE) |>
+  summarise(id, group)
+
+students |>
+  slice_tail(n = 10) |>
+  knitr::kable()
+```
 
 
