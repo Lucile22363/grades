@@ -1,0 +1,14 @@
+---
+title: "SOLAL"
+author: "Lucile Solal"
+format: html
+---
+
+# Data importation 
+```{r}
+here::i_am("SOLAL.Rproj")
+library(here)
+library(readr)
+data <- read.csv(here("grades.csv"))
+```
+
