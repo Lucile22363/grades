@@ -52,5 +52,27 @@ ggplot(average, aes(x = group, y = average)) +
   geom_col()
 ```
 
+# Question 8
+```{r}
+grades_per_student <- data |> 
+  group_by(id, group) |>
+  summarise(nb_grades = n())
+
+grades_per_student |>
+  slice(1:10)
+
+summary <- grades_per_student |>
+  summarise(minimum = min(nb_grades), 
+            maximum = max(nb_grades), 
+            average = mean(nb_grades), 
+            median = median(nb_grades))
+
+summary(grades_per_student)
+```
+Minimum: `r min(summary$minimum)`
+Maximum: `r max(summary$maximum)`
+Average: `r mean(summary$average)`
+Median: `r median(summary$median)`
+
 
 
