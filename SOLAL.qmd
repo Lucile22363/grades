@@ -52,6 +52,12 @@ ggplot(average, aes(x = group, y = average)) +
   geom_col()
 ```
 
+# Question 7
+```{r}
+ggplot(data, aes(x = grade, fill = module)) + 
+  geom_density()
+```
+
 # Question 8
 ```{r}
 grades_per_student <- data |> 
@@ -74,5 +80,23 @@ Maximum: `r max(summary$maximum)`
 Average: `r mean(summary$average)`
 Median: `r median(summary$median)`
 
+# Question 9
+```{r}
+crypto_nb_grades <- data |>
+  filter(course == "Cryptography and Codebreaking") |>
+  group_by(id, group) |>
+  summarise(nb_grades = n())
 
+crypto_nb_grades |>
+  slice(1:10)
+```
+# Question 10
+```{r}
+distrib_crypto <- crypto_nb_grades |>
+  group_by(nb_grades) |>
+  summarise(student_distrib = n())
+
+ggplot(distrib_crypto, aes(x=nb_grades, y = student_distrib)) +
+  geom_col()
+```
 
