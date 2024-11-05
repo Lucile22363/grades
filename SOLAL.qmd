@@ -4,7 +4,7 @@ author: "Lucile Solal"
 format: html
 ---
 
-# Data importation 
+# Question 1
 ```{r}
 here::i_am("SOLAL.Rproj")
 library(here)
@@ -12,3 +12,5 @@ library(readr)
 data <- read.csv(here("grades.csv"))
 ```
 
+# Question 2
+The data set contains `r NROW(data)` grades. 
