@@ -14,3 +14,14 @@ data <- read.csv(here("grades.csv"))
 
 # Question 2
 The data set contains `r NROW(data)` grades. 
+
+# Question 3
+```{r}
+library(dplyr)
+nb_students <- data |>
+  distinct(id)
+```
+The data set contains `r NROW(nb_students)` students 
+
+
+
