@@ -41,5 +41,16 @@ ggplot(students, aes(x=group)) +
   geom_bar()
 ```
 
+# Question 6
+```{r}
+average <- data |>
+  filter(course == "Airship Piloting and Navigation") |>
+  group_by(group) |>
+  summarise(average = mean(grade))
+
+ggplot(average, aes(x = group, y = average)) +
+  geom_col()
+```
+
 
 
