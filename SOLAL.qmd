@@ -100,3 +100,20 @@ ggplot(distrib_crypto, aes(x=nb_grades, y = student_distrib)) +
   geom_col()
 ```
 
+# Question 12
+```{r}
+library(tidyr)
+data |>
+ group_by(id) |>
+  pivot_wider(names_from = "course", 
+              values_from = "grade")
+```
+
+```{r}
+library(tidyr)
+data |>
+ distinct(id, .keep_all = TRUE)|>
+  pivot_wider(!id | !group, 
+              names_from = "course", 
+              values_from = "grade")
+```  
